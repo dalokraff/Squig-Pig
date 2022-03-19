@@ -1,10 +1,10 @@
 common = {
   input = {
-    filename = "textures/squig_herd/grn_squig_body_01_diffuse"
+    filename = "textures/squig_herd/grn_squig_body_01_specular"
   }
 
   output = {
-    format = "BC7"
+    format = "DXT5"
     apply_processing = true
     enable_cut_alpha_threshold = false
     cut_alpha_threshold = 0.5

@@ -19,8 +19,31 @@ NetworkLookup.husks[unit_path] = num_husk
 
 mod:dofile("scripts/mods/Squig-Pig/breeds/breed_squig")
 mod:dofile("scripts/settings/breeds")
+mod:dofile("scripts/mods/Squig-Pig/settings/ai_inventory")
 -- mod:dofile("scripts/managers/performance/performance_manager")
 -- mod:dofile("scripts/managers/conflict_director/conflict_director")
+mod:dofile("scripts/mods/Squig-Pig/AI/bt_selector_squig")
+mod:dofile("scripts/mods/Squig-Pig/AI/squig_behavior")
+--mod:dofile("scripts/entity_systems/systems/behaviour/bt_minion")
+
+-- AISystem:create_all_trees()
+
+-- if true then
+-- 	for bt_name, bt_node in pairs(BreedBehaviors) do
+-- 		bt_node[1] = "BTSelector_" .. bt_name
+-- 		bt_node.name = bt_name .. "_GENERATED"
+-- 	end
+-- else
+-- 	for bt_name, bt_node in pairs(BreedBehaviors) do
+-- 		bt_node[1] = "BTSelector"
+-- 		bt_node.name = bt_name
+-- 	end
+-- end
+-- mod:hook(Unit, "animation_event", function(func, self, event)
+--     mod:echo(self)
+--     mod:echo(event)
+--     return func(self, event)
+-- end)
 
 
 local function create_lookups(lookup, hashtable)
@@ -36,30 +59,6 @@ end
 NetworkLookup.breeds = create_lookups({}, Breeds)
 
 Breeds.greenskin_squig.name = "critter_rat"
-
--- Breeds.critter_pig["base_unit"] = unit_path
--- Breeds.critter_pig["hit_zones"]  = {
---     neck = {
---         prio = 1,
---         actors = {
---             "c_head"
-           
---         }
---     },
---     torso = {
---         prio = 2,
---         actors = {
---             "c_head"
---         },
---         push_actors = {
---             "head_0"
---         }
---     },
---     full = {
---         prio = 3,
---         actors = {}
---     }
--- }
 
 Breeds.critter_rat["base_unit"] = unit_path
 Breeds.critter_rat["hit_zones"]  = {
@@ -85,53 +84,8 @@ Breeds.critter_rat["hit_zones"]  = {
     }
 }
 
-
-local no_outfit = {
-    --unit_extension_template = "ai_outfit_unit",
-	unit_name = "units/beings/player/chr_dummy_hat",
-	attachment_node_linking = AttachmentNodeLinking.non_visual_attachment
-}
-local squig_bag = {
-    no_outfit,
-}
-InventoryConfigurations['squig'] = {
-    enemy_hit_sound = "sword",
-	anim_state_event = "to_combat",
-	items = {
-		squig_bag,
-	}
-}
-InventoryConfigurations['squig'].count = #InventoryConfigurations['squig']
-InventoryConfigurations['squig'].name = 'squig'
--- for config_name, config in pairs(InventoryConfigurations) do
-InventoryConfigurations['squig'].items_n = InventoryConfigurations['squig'].items and #InventoryConfigurations['squig'].items
-
-assert(AIInventoryTemplates['squig'] == nil, "Can't override configuration based templates")
-
-AIInventoryTemplates['squig'] = function ()
-	return 'squig'
-end
-
-local multiple_configurations = InventoryConfigurations['squig'].multiple_configurations
-
-if multiple_configurations then
-	InventoryConfigurations['squig'].config_lookup = {}
-
-	for i = 1, #multiple_configurations, 1 do
-		local 'squig' = multiple_configurations[i]
-		InventoryConfigurations['squig'].config_lookup['squig'] = i
-	end
-end
--- end
-
-local num_AIinv = #NetworkLookup.ai_inventory
-NetworkLookup.ai_inventory[num_AIinv] = 'squig'
-
-NetworkLookup.ai_inventory['squig'] = num_AIinv
-Breeds.skaven_slave['default_inventory_template'] = {'squig'}
-Breeds.skaven_slave['opt_default_inventory_template'] = {'squig'}
-Breeds.skaven_slave["base_unit"] = unit_path
-Breeds.skaven_slave["hit_zones"]  = {
+Breeds.critter_pig["base_unit"] = unit_path
+Breeds.critter_pig["hit_zones"]  = {
     neck = {
         prio = 1,
         actors = {
@@ -153,6 +107,32 @@ Breeds.skaven_slave["hit_zones"]  = {
         actors = {}
     }
 }
+
+-- Breeds.skaven_slave['default_inventory_template'] = {'squig'}
+-- Breeds.skaven_slave['opt_default_inventory_template'] = {'squig'}
+-- Breeds.skaven_slave["base_unit"] = unit_path
+-- Breeds.skaven_slave["hit_zones"]  = {
+--     neck = {
+--         prio = 1,
+--         actors = {
+--             "c_head"
+           
+--         }
+--     },
+--     torso = {
+--         prio = 2,
+--         actors = {
+--             "c_head"
+--         },
+--         push_actors = {
+--             "head_0"
+--         }
+--     },
+--     full = {
+--         prio = 3,
+--         actors = {}
+--     }
+-- }
 
 
 local function replace_textures(unit)
@@ -233,7 +213,7 @@ end)
 mod:hook(UnitSpawner, 'create_unit_extensions', function (func, self, world, unit, unit_template_name, extension_init_data)
     replace_textures(unit)
     return func(self, world, unit, unit_template_name, extension_init_data)
-end)
+end) 
 
 -- mod:hook(Unit, "animation_event", function( func, self, event) 
 --     mod:echo(tostring(self)..tostring(event))
@@ -299,3 +279,97 @@ local add_spawn_catagory = {
 table.merge(spawn_mod.unit_categories, table)
 breed_name = 'greenskin_squig'
 table.insert(spawn_mod["all_units"], breed_name)
+
+-- mod:hook(BTClanRatFollowAction,'_update_walking', function (func, self, unit, blackboard, dt, t)
+--     local action_data = blackboard.action
+--     print(blackboard.move_state)
+--     return func(self, unit, blackboard, dt, t)
+-- end)
+
+-- print('-----------------------------------------------------------------')
+-- print('-----------------------------------------------------------------')
+-- print('-------------------------------start here------------------------')
+-- print('-----------------------------------------------------------------')
+-- print('-----------------------------------------------------------------')
+-- for k,v in pairs(BLACKBOARDS) do
+--     print('=================divider is here=====================')
+--     print('=====================================================')
+--     print(k)
+--     print(v)
+--     -- print('----values of v----')
+--     -- for i,j in pairs(v) do
+--     --     print(i)
+--     --     print(j)
+--     --     print('___________________')
+--     -- end
+--     if v['running_nodes'] then
+--         for l,p in pairs (v['running_nodes']['in_combat']) do 
+--             print(l)
+--             print(p)
+--         end
+--     end
+-- end
+
+
+
+local function randomize_actions(unit, actions, blackboard, t, node_children)
+	local num_actions = #actions
+	local total_utility_score = 0
+
+	for i = 1, num_actions, 1 do
+		local action = actions[i]
+		local action_name = action.name
+		local node = node_children[action_name]
+		local score = 0
+
+		if node:condition(blackboard) then
+			score = Utility.get_action_utility(action, action_name, blackboard, t)
+		end
+
+		actions[i].utility_score = score
+		total_utility_score = total_utility_score + score
+	end
+
+	for i = 1, num_actions, 1 do
+		local picked_index = nil
+		local random_utility_score = math.random() * total_utility_score
+
+		for j = i, num_actions, 1 do
+			local action_utility_score = actions[j].utility_score
+
+			if random_utility_score < action_utility_score then
+				picked_index = j
+
+				break
+			end
+
+			random_utility_score = random_utility_score - action_utility_score
+		end
+
+		if not picked_index then
+			num_actions = i - 1
+
+			return num_actions
+		end
+
+		total_utility_score = total_utility_score - actions[picked_index].utility_score
+
+		if picked_index ~= i then
+			swap(actions, picked_index, i)
+		end
+	end
+
+	return num_actions
+end
+
+
+mod:hook(BTUtilityNode, 'run', function (func, self, unit, blackboard, t, dt)
+    local running_node = self:current_running_child(blackboard)
+    -- if running_node then
+    --     for k,v in pairs(running_node) do
+    --         print(k)
+    --     end
+    -- end
+    printrandomize_actions(unit, actions, blackboard, t, self._children))
+    return func(self, unit, blackboard, t, dt)
+end)

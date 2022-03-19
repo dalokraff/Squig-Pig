@@ -1,5 +1,6 @@
 local squig_data = {
     detection_radius = 10,
+	panic_close_detection_radius_sq = 9,
 	target_selection = "pick_closest_target_with_spillover",
 	run_speed = 4.5,
 	exchange_order = 1,
@@ -33,15 +34,15 @@ local squig_data = {
     unit_template = "ai_unit_clan_rat",
 	perception_previous_attacker_stickyness_value = -12.5,
     player_locomotion_constrain_radius = 0.7,
-	race = "critter",
+	race = "skaven",
 	no_autoaim = true,
 	death_reaction = "ai_default",
 	armor_category = 1,
 	weapon_reach = 2,
 	vortexable = false,
 	--disable_local_hit_reactions = true,
-	behavior = "slave_rat",
-    --behavior = "greenskin_squig",
+	--behavior = "slave_rat",
+    behavior = "greenskin_squig",
     base_unit = "units/squig_herd/grn_squig_herd_01",
 	threat_value = 1,
 	--ignore_activate_unit = true,
@@ -299,6 +300,19 @@ BreedActions.greenskin_squig = {
 		shout_anim = "shout",
 		action_weight = 1,
 		considerations = UtilityConsiderations.clan_rat_shout
+	},
+	smash_door = {
+		unblockable = true,
+		name = "smash_door",
+		damage = 1,
+		damage_type = "cutting",
+		move_anim = "move_fwd",
+		attack_anim = "attack_pounce"
+	},
+	interest_point_choose = {
+		max_range = 10,
+		name = "interest_point_choose",
+		min_range = 4
 	},
     utility_action = {
 		fail_cooldown_blackboard_identifier = "attack_cooldown_at",

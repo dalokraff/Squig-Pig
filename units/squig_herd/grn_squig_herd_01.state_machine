@@ -11,7 +11,6 @@ events = {
 	move_fwd = {}
 	dig_ground = {}
 	dig_door = {}
-	move_start_fwd = {}
 	move_fwd_walk = {}
 	move_right_walk = {}
 	move_left_walk = {}
@@ -20,9 +19,17 @@ events = {
 	to_spear = {}
 	shout = {}
 	attack_pounce = {}
+	attack_pounce_1 = {}
+	attack_pounce_2 = {}
+	attack_pounce_3 = {}
+	attack_pounce_4 = {}
 	attack_reach_up = {}
 	attack_pounce_down = {}
 	attack_reach_down = {}
+	move_start_bwd = {}
+	move_start_fwd = {}
+	move_start_left = {}
+	move_start_right = {}
 }
 layers = [
 	{
@@ -30,13 +37,16 @@ layers = [
 		states = [
 			{
 				animations = [
-					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_01",
-					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_03",
-					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_06"
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_01",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_02",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_03",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_04",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_05",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_06"
 				]
 				loop_animation = true
-				name = "base/attack_pounce"
-				randomization_type = "every_loop"
+				name = "base/move_start_bwd"
+				randomization_type = "on_entry"
 				root_driving = "ignore"
 				speed = "1"
 				state_type = "regular"
@@ -47,6 +57,27 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/alerted"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
 					}
 					{
 						blend_time = 0.5
@@ -75,6 +106,1675 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
+					}
+					{
+						blend_time = 0.5
+						event = "hit_reaction"
+						mode = "direct"
+						on_beat = ""
+						to = "base/hit_reaction"
+					}
+					{
+						blend_time = 0.5
+						event = "shout"
+						mode = "direct"
+						on_beat = ""
+						to = "base/shout"
+					}
+					{
+						blend_time = 0.5
+						event = "to_spear"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_spear"
+					}
+					{
+						blend_time = 0.5
+						event = "hesitate"
+						mode = "direct"
+						on_beat = ""
+						to = "base/hesitate"
+					}
+					{
+						blend_time = 0.5
+						event = "dig_door"
+						mode = "direct"
+						on_beat = ""
+						to = "base/dig_door"
+					}
+					{
+						blend_time = 0.5
+						event = "to_passive"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_passive"
+					}
+					{
+						blend_time = 0.5
+						event = "move_start_fwd"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_fwd"
+					}
+					{
+						blend_time = 0.5
+						event = "dig_ground"
+						mode = "direct"
+						on_beat = ""
+						to = "base/dig_ground"
+					}
+					{
+						blend_time = 1.5
+						event = "idle"
+						mode = "direct"
+						on_beat = ""
+						to = "base/idle"
+					}
+					{
+						blend_time = 0.5
+						event = "vortex_loop"
+						mode = "direct"
+						on_beat = ""
+						to = "base/vortex_loop"
+					}
+					{
+						blend_time = 0.5
+						event = "to_combat"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_combat"
+					}
+					{
+						blend_time = 0.5
+						event = "move_fwd"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_fwd"
+					}
+					{
+						blend_time = 0.2
+						event = "death"
+						mode = "direct"
+						on_beat = ""
+						to = "base/death"
+					}
+					{
+						blend_time = 0.2
+						event = "ragdoll"
+						mode = "direct"
+						on_beat = ""
+						to = "base/death"
+					}
+				]
+				weights = [
+					"1.0"
+					"1.0"
+					"1.0"
+					"1.0"
+					"1.0"
+					"1.0"
+				]
+			}
+			{
+				animations = [
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_01",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_02",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_03",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_04",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_05",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_06"
+				]
+				loop_animation = true
+				name = "base/move_start_fwd"
+				randomization_type = "on_entry"
+				root_driving = "ignore"
+				speed = "1"
+				state_type = "regular"
+				transitions = [
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/alerted"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
+						event = "move_right_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_right_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "move_left_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_left_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "move_fwd_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_fwd_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
+					}
+					{
+						blend_time = 0.5
+						event = "hit_reaction"
+						mode = "direct"
+						on_beat = ""
+						to = "base/hit_reaction"
+					}
+					{
+						blend_time = 0.5
+						event = "shout"
+						mode = "direct"
+						on_beat = ""
+						to = "base/shout"
+					}
+					{
+						blend_time = 0.5
+						event = "to_spear"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_spear"
+					}
+					{
+						blend_time = 0.5
+						event = "hesitate"
+						mode = "direct"
+						on_beat = ""
+						to = "base/hesitate"
+					}
+					{
+						blend_time = 0.5
+						event = "dig_door"
+						mode = "direct"
+						on_beat = ""
+						to = "base/dig_door"
+					}
+					{
+						blend_time = 0.5
+						event = "to_passive"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_passive"
+					}
+					{
+						blend_time = 0.5
+						event = "move_start_fwd"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_fwd"
+					}
+					{
+						blend_time = 0.5
+						event = "dig_ground"
+						mode = "direct"
+						on_beat = ""
+						to = "base/dig_ground"
+					}
+					{
+						blend_time = 1.5
+						event = "idle"
+						mode = "direct"
+						on_beat = ""
+						to = "base/idle"
+					}
+					{
+						blend_time = 0.5
+						event = "vortex_loop"
+						mode = "direct"
+						on_beat = ""
+						to = "base/vortex_loop"
+					}
+					{
+						blend_time = 0.5
+						event = "to_combat"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_combat"
+					}
+					{
+						blend_time = 0.5
+						event = "move_fwd"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_fwd"
+					}
+					{
+						blend_time = 0.2
+						event = "death"
+						mode = "direct"
+						on_beat = ""
+						to = "base/death"
+					}
+					{
+						blend_time = 0.2
+						event = "ragdoll"
+						mode = "direct"
+						on_beat = ""
+						to = "base/death"
+					}
+				]
+				weights = [
+					"1.0"
+					"1.0"
+					"1.0"
+					"1.0"
+					"1.0"
+					"1.0"
+				]
+			}
+			{
+				animations = [
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_01",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_02",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_03",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_04",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_05",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_06"
+				]
+				loop_animation = true
+				name = "base/move_start_left"
+				randomization_type = "on_entry"
+				root_driving = "ignore"
+				speed = "1"
+				state_type = "regular"
+				transitions = [
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/alerted"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
+						event = "move_right_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_right_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "move_left_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_left_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "move_fwd_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_fwd_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
+					}
+					{
+						blend_time = 0.5
+						event = "hit_reaction"
+						mode = "direct"
+						on_beat = ""
+						to = "base/hit_reaction"
+					}
+					{
+						blend_time = 0.5
+						event = "shout"
+						mode = "direct"
+						on_beat = ""
+						to = "base/shout"
+					}
+					{
+						blend_time = 0.5
+						event = "to_spear"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_spear"
+					}
+					{
+						blend_time = 0.5
+						event = "hesitate"
+						mode = "direct"
+						on_beat = ""
+						to = "base/hesitate"
+					}
+					{
+						blend_time = 0.5
+						event = "dig_door"
+						mode = "direct"
+						on_beat = ""
+						to = "base/dig_door"
+					}
+					{
+						blend_time = 0.5
+						event = "to_passive"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_passive"
+					}
+					{
+						blend_time = 0.5
+						event = "move_start_fwd"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_fwd"
+					}
+					{
+						blend_time = 0.5
+						event = "dig_ground"
+						mode = "direct"
+						on_beat = ""
+						to = "base/dig_ground"
+					}
+					{
+						blend_time = 1.5
+						event = "idle"
+						mode = "direct"
+						on_beat = ""
+						to = "base/idle"
+					}
+					{
+						blend_time = 0.5
+						event = "vortex_loop"
+						mode = "direct"
+						on_beat = ""
+						to = "base/vortex_loop"
+					}
+					{
+						blend_time = 0.5
+						event = "to_combat"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_combat"
+					}
+					{
+						blend_time = 0.5
+						event = "move_fwd"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_fwd"
+					}
+					{
+						blend_time = 0.2
+						event = "death"
+						mode = "direct"
+						on_beat = ""
+						to = "base/death"
+					}
+					{
+						blend_time = 0.2
+						event = "ragdoll"
+						mode = "direct"
+						on_beat = ""
+						to = "base/death"
+					}
+				]
+				weights = [
+					"1.0"
+					"1.0"
+					"1.0"
+					"1.0"
+					"1.0"
+					"1.0"
+				]
+			}
+			{
+				animations = [
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_01",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_02",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_03",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_04",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_05",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_run_06"
+				]
+				loop_animation = true
+				name = "base/move_start_right"
+				randomization_type = "on_entry"
+				root_driving = "ignore"
+				speed = "1"
+				state_type = "regular"
+				transitions = [
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/alerted"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
+						event = "move_right_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_right_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "move_left_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_left_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "move_fwd_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_fwd_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
+					}
+					{
+						blend_time = 0.5
+						event = "hit_reaction"
+						mode = "direct"
+						on_beat = ""
+						to = "base/hit_reaction"
+					}
+					{
+						blend_time = 0.5
+						event = "shout"
+						mode = "direct"
+						on_beat = ""
+						to = "base/shout"
+					}
+					{
+						blend_time = 0.5
+						event = "to_spear"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_spear"
+					}
+					{
+						blend_time = 0.5
+						event = "hesitate"
+						mode = "direct"
+						on_beat = ""
+						to = "base/hesitate"
+					}
+					{
+						blend_time = 0.5
+						event = "dig_door"
+						mode = "direct"
+						on_beat = ""
+						to = "base/dig_door"
+					}
+					{
+						blend_time = 0.5
+						event = "to_passive"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_passive"
+					}
+					{
+						blend_time = 0.5
+						event = "move_start_fwd"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_fwd"
+					}
+					{
+						blend_time = 0.5
+						event = "dig_ground"
+						mode = "direct"
+						on_beat = ""
+						to = "base/dig_ground"
+					}
+					{
+						blend_time = 1.5
+						event = "idle"
+						mode = "direct"
+						on_beat = ""
+						to = "base/idle"
+					}
+					{
+						blend_time = 0.5
+						event = "vortex_loop"
+						mode = "direct"
+						on_beat = ""
+						to = "base/vortex_loop"
+					}
+					{
+						blend_time = 0.5
+						event = "to_combat"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_combat"
+					}
+					{
+						blend_time = 0.5
+						event = "move_fwd"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_fwd"
+					}
+					{
+						blend_time = 0.2
+						event = "death"
+						mode = "direct"
+						on_beat = ""
+						to = "base/death"
+					}
+					{
+						blend_time = 0.2
+						event = "ragdoll"
+						mode = "direct"
+						on_beat = ""
+						to = "base/death"
+					}
+				]
+				weights = [
+					"1.0"
+					"1.0"
+					"1.0"
+					"1.0"
+					"1.0"
+					"1.0"
+				]
+			}
+			{
+				animations = [
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_01",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_03",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_06"
+				]
+				loop_animation = true
+				name = "base/attack_pounce_4"
+				randomization_type = "every_loop"
+				root_driving = "ignore"
+				speed = "1"
+				state_type = "regular"
+				transitions = [
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/alerted"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
+						event = "move_right_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_right_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "move_left_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_left_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "move_fwd_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_fwd_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
+					}
+					{
+						blend_time = 0.5
+						event = "hit_reaction"
+						mode = "direct"
+						on_beat = ""
+						to = "base/hit_reaction"
+					}
+					{
+						blend_time = 0.5
+						event = "shout"
+						mode = "direct"
+						on_beat = ""
+						to = "base/shout"
+					}
+					{
+						blend_time = 0.5
+						event = "to_spear"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_spear"
+					}
+					{
+						blend_time = 0.5
+						event = "hesitate"
+						mode = "direct"
+						on_beat = ""
+						to = "base/hesitate"
+					}
+					{
+						blend_time = 0.5
+						event = "dig_door"
+						mode = "direct"
+						on_beat = ""
+						to = "base/dig_door"
+					}
+					{
+						blend_time = 0.5
+						event = "to_passive"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_passive"
+					}
+					{
+						blend_time = 0.5
+						event = "move_start_fwd"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_fwd"
+					}
+					{
+						blend_time = 0.5
+						event = "dig_ground"
+						mode = "direct"
+						on_beat = ""
+						to = "base/dig_ground"
+					}
+					{
+						blend_time = 1.5
+						event = "idle"
+						mode = "direct"
+						on_beat = ""
+						to = "base/idle"
+					}
+					{
+						blend_time = 0.5
+						event = "vortex_loop"
+						mode = "direct"
+						on_beat = ""
+						to = "base/vortex_loop"
+					}
+					{
+						blend_time = 0.5
+						event = "to_combat"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_combat"
+					}
+					{
+						blend_time = 0.5
+						event = "move_fwd"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_fwd"
+					}
+					{
+						blend_time = 0.2
+						event = "death"
+						mode = "direct"
+						on_beat = ""
+						to = "base/death"
+					}
+					{
+						blend_time = 0.2
+						event = "ragdoll"
+						mode = "direct"
+						on_beat = ""
+						to = "base/death"
+					}
+				]
+				weights = [
+					"1.0"
+					"1.0"
+					"1.0"
+					"1.0"
+				]
+			}
+			{
+				animations = [
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_01",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_03",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_06"
+				]
+				loop_animation = true
+				name = "base/attack_pounce_3"
+				randomization_type = "every_loop"
+				root_driving = "ignore"
+				speed = "1"
+				state_type = "regular"
+				transitions = [
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/alerted"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
+						event = "move_right_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_right_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "move_left_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_left_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "move_fwd_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_fwd_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
+					}
+					{
+						blend_time = 0.5
+						event = "hit_reaction"
+						mode = "direct"
+						on_beat = ""
+						to = "base/hit_reaction"
+					}
+					{
+						blend_time = 0.5
+						event = "shout"
+						mode = "direct"
+						on_beat = ""
+						to = "base/shout"
+					}
+					{
+						blend_time = 0.5
+						event = "to_spear"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_spear"
+					}
+					{
+						blend_time = 0.5
+						event = "hesitate"
+						mode = "direct"
+						on_beat = ""
+						to = "base/hesitate"
+					}
+					{
+						blend_time = 0.5
+						event = "dig_door"
+						mode = "direct"
+						on_beat = ""
+						to = "base/dig_door"
+					}
+					{
+						blend_time = 0.5
+						event = "to_passive"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_passive"
+					}
+					{
+						blend_time = 0.5
+						event = "move_start_fwd"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_fwd"
+					}
+					{
+						blend_time = 0.5
+						event = "dig_ground"
+						mode = "direct"
+						on_beat = ""
+						to = "base/dig_ground"
+					}
+					{
+						blend_time = 1.5
+						event = "idle"
+						mode = "direct"
+						on_beat = ""
+						to = "base/idle"
+					}
+					{
+						blend_time = 0.5
+						event = "vortex_loop"
+						mode = "direct"
+						on_beat = ""
+						to = "base/vortex_loop"
+					}
+					{
+						blend_time = 0.5
+						event = "to_combat"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_combat"
+					}
+					{
+						blend_time = 0.5
+						event = "move_fwd"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_fwd"
+					}
+					{
+						blend_time = 0.2
+						event = "death"
+						mode = "direct"
+						on_beat = ""
+						to = "base/death"
+					}
+					{
+						blend_time = 0.2
+						event = "ragdoll"
+						mode = "direct"
+						on_beat = ""
+						to = "base/death"
+					}
+				]
+				weights = [
+					"1.0"
+					"1.0"
+					"1.0"
+					"1.0"
+				]
+			}
+			{
+				animations = [
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_01",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_03",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_06"
+				]
+				loop_animation = true
+				name = "base/attack_pounce_2"
+				randomization_type = "every_loop"
+				root_driving = "ignore"
+				speed = "1"
+				state_type = "regular"
+				transitions = [
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/alerted"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
+						event = "move_right_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_right_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "move_left_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_left_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "move_fwd_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_fwd_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
+					}
+					{
+						blend_time = 0.5
+						event = "hit_reaction"
+						mode = "direct"
+						on_beat = ""
+						to = "base/hit_reaction"
+					}
+					{
+						blend_time = 0.5
+						event = "shout"
+						mode = "direct"
+						on_beat = ""
+						to = "base/shout"
+					}
+					{
+						blend_time = 0.5
+						event = "to_spear"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_spear"
+					}
+					{
+						blend_time = 0.5
+						event = "hesitate"
+						mode = "direct"
+						on_beat = ""
+						to = "base/hesitate"
+					}
+					{
+						blend_time = 0.5
+						event = "dig_door"
+						mode = "direct"
+						on_beat = ""
+						to = "base/dig_door"
+					}
+					{
+						blend_time = 0.5
+						event = "to_passive"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_passive"
+					}
+					{
+						blend_time = 0.5
+						event = "move_start_fwd"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_fwd"
+					}
+					{
+						blend_time = 0.5
+						event = "dig_ground"
+						mode = "direct"
+						on_beat = ""
+						to = "base/dig_ground"
+					}
+					{
+						blend_time = 1.5
+						event = "idle"
+						mode = "direct"
+						on_beat = ""
+						to = "base/idle"
+					}
+					{
+						blend_time = 0.5
+						event = "vortex_loop"
+						mode = "direct"
+						on_beat = ""
+						to = "base/vortex_loop"
+					}
+					{
+						blend_time = 0.5
+						event = "to_combat"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_combat"
+					}
+					{
+						blend_time = 0.5
+						event = "move_fwd"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_fwd"
+					}
+					{
+						blend_time = 0.2
+						event = "death"
+						mode = "direct"
+						on_beat = ""
+						to = "base/death"
+					}
+					{
+						blend_time = 0.2
+						event = "ragdoll"
+						mode = "direct"
+						on_beat = ""
+						to = "base/death"
+					}
+				]
+				weights = [
+					"1.0"
+					"1.0"
+					"1.0"
+					"1.0"
+				]
+			}
+			{
+				animations = [
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_01",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_03",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_06"
+				]
+				loop_animation = true
+				name = "base/attack_pounce_1"
+				randomization_type = "every_loop"
+				root_driving = "ignore"
+				speed = "1"
+				state_type = "regular"
+				transitions = [
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/alerted"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
+						event = "move_right_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_right_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "move_left_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_left_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "move_fwd_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_fwd_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
+					}
+					{
+						blend_time = 0.5
+						event = "hit_reaction"
+						mode = "direct"
+						on_beat = ""
+						to = "base/hit_reaction"
+					}
+					{
+						blend_time = 0.5
+						event = "shout"
+						mode = "direct"
+						on_beat = ""
+						to = "base/shout"
+					}
+					{
+						blend_time = 0.5
+						event = "to_spear"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_spear"
+					}
+					{
+						blend_time = 0.5
+						event = "hesitate"
+						mode = "direct"
+						on_beat = ""
+						to = "base/hesitate"
+					}
+					{
+						blend_time = 0.5
+						event = "dig_door"
+						mode = "direct"
+						on_beat = ""
+						to = "base/dig_door"
+					}
+					{
+						blend_time = 0.5
+						event = "to_passive"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_passive"
+					}
+					{
+						blend_time = 0.5
+						event = "move_start_fwd"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_fwd"
+					}
+					{
+						blend_time = 0.5
+						event = "dig_ground"
+						mode = "direct"
+						on_beat = ""
+						to = "base/dig_ground"
+					}
+					{
+						blend_time = 1.5
+						event = "idle"
+						mode = "direct"
+						on_beat = ""
+						to = "base/idle"
+					}
+					{
+						blend_time = 0.5
+						event = "vortex_loop"
+						mode = "direct"
+						on_beat = ""
+						to = "base/vortex_loop"
+					}
+					{
+						blend_time = 0.5
+						event = "to_combat"
+						mode = "direct"
+						on_beat = ""
+						to = "base/to_combat"
+					}
+					{
+						blend_time = 0.5
+						event = "move_fwd"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_fwd"
+					}
+					{
+						blend_time = 0.2
+						event = "death"
+						mode = "direct"
+						on_beat = ""
+						to = "base/death"
+					}
+					{
+						blend_time = 0.2
+						event = "ragdoll"
+						mode = "direct"
+						on_beat = ""
+						to = "base/death"
+					}
+				]
+				weights = [
+					"1.0"
+					"1.0"
+					"1.0"
+					"1.0"
+				]
+			}
+			{
+				animations = [
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_01",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_03",
+					"units/squig_herd/anims/grn_squig_herd_01__rp2_attack_06"
+				]
+				loop_animation = true
+				name = "base/attack_pounce"
+				randomization_type = "every_loop"
+				root_driving = "ignore"
+				speed = "1"
+				state_type = "regular"
+				transitions = [
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/alerted"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
+						event = "move_right_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_right_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "move_left_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_left_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "move_fwd_walk"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_fwd_walk"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -205,6 +1905,27 @@ layers = [
 					}
 					{
 						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
 						event = "move_right_walk"
 						mode = "direct"
 						on_beat = ""
@@ -230,6 +1951,34 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -357,6 +2106,27 @@ layers = [
 					}
 					{
 						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
 						event = "move_right_walk"
 						mode = "direct"
 						on_beat = ""
@@ -382,6 +2152,34 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -481,7 +2279,6 @@ layers = [
 						on_beat = ""
 						to = "base/death"
 					}
-					
 				]
 				weights = [
 					"1.0"
@@ -507,6 +2304,27 @@ layers = [
 					}
 					{
 						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
 						event = "move_right_walk"
 						mode = "direct"
 						on_beat = ""
@@ -532,6 +2350,34 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -631,7 +2477,6 @@ layers = [
 						on_beat = ""
 						to = "base/death"
 					}
-					
 				]
 				weights = [
 					"1.0"
@@ -657,6 +2502,27 @@ layers = [
 					}
 					{
 						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
 						event = "move_right_walk"
 						mode = "direct"
 						on_beat = ""
@@ -682,6 +2548,34 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -781,7 +2675,6 @@ layers = [
 						on_beat = ""
 						to = "base/death"
 					}
-					
 				]
 				weights = [
 					"1.0"
@@ -807,6 +2700,27 @@ layers = [
 					}
 					{
 						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
 						event = "move_right_walk"
 						mode = "direct"
 						on_beat = ""
@@ -832,6 +2746,34 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -931,7 +2873,6 @@ layers = [
 						on_beat = ""
 						to = "base/death"
 					}
-					
 				]
 				weights = [
 					"1.0"
@@ -954,6 +2895,27 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/alerted"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
 					}
 					{
 						blend_time = 0.5
@@ -982,6 +2944,34 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -1106,6 +3096,27 @@ layers = [
 					}
 					{
 						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
 						event = "move_right_walk"
 						mode = "direct"
 						on_beat = ""
@@ -1131,6 +3142,34 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -1230,7 +3269,6 @@ layers = [
 						on_beat = ""
 						to = "base/death"
 					}
-					
 				]
 				weights = [
 					"1.0"
@@ -1256,6 +3294,27 @@ layers = [
 					}
 					{
 						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
 						event = "move_right_walk"
 						mode = "direct"
 						on_beat = ""
@@ -1281,6 +3340,34 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -1380,7 +3467,6 @@ layers = [
 						on_beat = ""
 						to = "base/death"
 					}
-					
 				]
 				weights = [
 					"1.0"
@@ -1406,6 +3492,27 @@ layers = [
 					}
 					{
 						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
 						event = "move_right_walk"
 						mode = "direct"
 						on_beat = ""
@@ -1431,6 +3538,34 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -1530,7 +3665,6 @@ layers = [
 						on_beat = ""
 						to = "base/death"
 					}
-					
 				]
 				weights = [
 					"1.0"
@@ -1556,6 +3690,27 @@ layers = [
 					}
 					{
 						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
 						event = "move_right_walk"
 						mode = "direct"
 						on_beat = ""
@@ -1581,6 +3736,34 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -1680,7 +3863,6 @@ layers = [
 						on_beat = ""
 						to = "base/death"
 					}
-					
 				]
 				weights = [
 					"1.0"
@@ -1707,6 +3889,27 @@ layers = [
 					}
 					{
 						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
 						event = "move_right_walk"
 						mode = "direct"
 						on_beat = ""
@@ -1732,6 +3935,34 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -1831,7 +4062,6 @@ layers = [
 						on_beat = ""
 						to = "base/death"
 					}
-					
 				]
 				weights = [
 					"1.0"
@@ -1863,6 +4093,27 @@ layers = [
 					}
 					{
 						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
 						event = "move_right_walk"
 						mode = "direct"
 						on_beat = ""
@@ -1888,6 +4139,34 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -1987,7 +4266,6 @@ layers = [
 						on_beat = ""
 						to = "base/death"
 					}
-					
 				]
 				weights = [
 					"1.0"
@@ -2023,6 +4301,27 @@ layers = [
 					}
 					{
 						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
 						event = "move_right_walk"
 						mode = "direct"
 						on_beat = ""
@@ -2048,6 +4347,34 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -2147,7 +4474,6 @@ layers = [
 						on_beat = ""
 						to = "base/death"
 					}
-					
 				]
 				weights = [
 					"1.0"
@@ -2183,6 +4509,27 @@ layers = [
 					}
 					{
 						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
 						event = "move_right_walk"
 						mode = "direct"
 						on_beat = ""
@@ -2208,6 +4555,34 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -2307,7 +4682,6 @@ layers = [
 						on_beat = ""
 						to = "base/death"
 					}
-					
 				]
 				weights = [
 					"1.0"
@@ -2339,6 +4713,27 @@ layers = [
 					}
 					{
 						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
 						event = "move_right_walk"
 						mode = "direct"
 						on_beat = ""
@@ -2364,6 +4759,34 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -2463,7 +4886,6 @@ layers = [
 						on_beat = ""
 						to = "base/death"
 					}
-					
 				]
 				weights = [
 					"1.0"
@@ -2490,6 +4912,27 @@ layers = [
 					}
 					{
 						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_bwd"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_left"
+					}
+					{
+						blend_time = 0.5
+						event = "alerted"
+						mode = "direct"
+						on_beat = ""
+						to = "base/move_start_right"
+					}
+					{
+						blend_time = 0.5
 						event = "move_right_walk"
 						mode = "direct"
 						on_beat = ""
@@ -2515,6 +4958,34 @@ layers = [
 						mode = "direct"
 						on_beat = ""
 						to = "base/attack_pounce"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_1"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_1"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_2"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_2"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_3"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_3"
+					}
+					{
+						blend_time = 0.5
+						event = "attack_pounce_4"
+						mode = "direct"
+						on_beat = ""
+						to = "base/attack_pounce_4"
 					}
 					{
 						blend_time = 0.5
@@ -2614,7 +5085,6 @@ layers = [
 						on_beat = ""
 						to = "base/death"
 					}
-					
 				]
 				weights = [
 					"1.0"

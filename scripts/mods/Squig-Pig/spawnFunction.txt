@@ -65,3 +65,33 @@ mod:command("spawn_your_unit", "", function()
     local unit = spawn_package_to_player("units/your_unit")
     replace_textures(unit)
 end)
+
+data = {
+    mat_slots = {
+        slot1 = "grn_squig_herd_01",
+    }
+    mat_to_use = "units/weapons/player/wpn_empire_handgun_02_t2/wpn_empire_handgun_02_t2_3p"
+    
+    colors = {
+        slot1 = "textures/squig_herd/grn_squig_body_01_diffuse"
+    }
+    normals = {
+        slot1 = "textures/squig_herd/grn_squig_body_01_normal"
+    }
+    glosses = {
+        slot1 = "textures/squig_herd/grn_squig_body_01_gloss_map"
+    }
+
+    color_slot = "texture_map_c0ba2942" 
+    norm_slot = "texture_map_0205ba86"
+    gloss_slot = "texture_map_59cd86b9"
+
+    breed = "critter_pig"
+
+    randomize_tints = false
+	scale_max = 1.3
+	scale_min = 0.8
+	tint_variation = 0
+
+    node_replace = "head_0"
+}
